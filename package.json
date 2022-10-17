@@ -1,5 +1,5 @@
 {
-  "name": "binance-oracle-starter",
+  "name": "@binance-oracle/binance-oracle-starter",
   "version": "1.0.0",
   "description": "Starter project for Binance Oracle containing solidity interfaces and sample code",
   "main": "hardhat.config.js",
