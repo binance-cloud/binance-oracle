@@ -20,8 +20,10 @@ import "@binance-oracle/binance-oracle-starter/contracts/interfaces/FeedRegistry
 
 ```shell
 git clone https://github.com/binance-cloud/binance-oracle.git
+cd binance-oracle
+cp .env.example .env
 npm install
-npm hardhat test
+npm run test
 ```
 
 ## Deploy mock consumer contracts to Testnet/ Mainnet
