@@ -12,13 +12,14 @@ npm install --save-dev @binance-oracle/binance-oracle-starter
 After installation, for instance if you like to import the 'FeedRegistryInterface' contract, you can do so by running the following command:
 
 ```solidity 
-import "@binance-oracle/binance-oracle-starter/contracts/FeedRegistryInterface.sol";
+import "@binance-oracle/binance-oracle-starter/contracts/interfaces/FeedRegistryInterface.sol";
 ```
 
 
 ## Run standalone tests
 
 ```shell
+git clone https://github.com/binance-cloud/binance-oracle.git
 npm install
 npm hardhat test
 ```
