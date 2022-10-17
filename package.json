@@ -1,0 +1,30 @@
+{
+  "name": "binance-oracle-starter",
+  "version": "1.0.0",
+  "description": "Starter project for Binance Oracle containing solidity interfaces and sample code",
+  "main": "hardhat.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:testnet": "hardhat run scripts/deployMocks.ts --network testnet",
+    "deploy:mainnet": "hardhat run scripts/deployMocks.ts --network mainnet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binance-cloud/binance-oracle.git"
+  },
+  "author": "Sri Krishna Mannem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binance-cloud/binance-oracle/issues"
+  },
+  "homepage": "https://github.com/binance-cloud/binance-oracle#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.12.0",
+    "dotenv": "^16.0.1"
+  }
+}
