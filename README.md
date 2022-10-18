@@ -9,7 +9,7 @@ npm install --save-dev @binance-oracle/binance-oracle-starter
 ```
 ## Import contracts to solidity
 
-After installation, for instance if you like to import the 'FeedRegistryInterface' contract, you can do so by running the following command:
+After installation, for instance if you like to import the 'FeedRegistryInterface' contract, you can do so as follows:
 
 ```solidity 
 import "@binance-oracle/binance-oracle-starter/contracts/interfaces/FeedRegistryInterface.sol";
