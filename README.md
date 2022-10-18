@@ -1,3 +1,7 @@
+![build](https://github.com/binance-cloud/binance-oracle/actions/workflows/build.yml/badge.svg?branch=main)
+![npm (scoped)](https://img.shields.io/npm/v/@binance-oracle/binance-oracle-starter)
+![npm](https://img.shields.io/npm/dw/@binance-oracle/binance-oracle-starter)
+![website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fbinance.oracle.com%2F)
 
 # Binance-Oracle
 Binance Oracle lets smart contracts query the price of assets on BSC. For detailed documentation, please visit [docs](https://oracle.binance.com/docs).
