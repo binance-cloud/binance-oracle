@@ -26,4 +26,6 @@ interface DenominationsInterface {
   ) external;
 
   function removePair(string calldata base, string calldata quote) external;
+
+  function exists(string calldata base, string calldata quote) external view returns (bool);
 }
