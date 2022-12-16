@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "../interfaces/AggregatorV2V3Interface.sol";
+import "../library/SID.sol";
 
 /*
 *   Consumer contract which retrieves price data from a FeedAdapter of a particular trading pair
@@ -12,8 +13,8 @@ import "../interfaces/AggregatorV2V3Interface.sol";
 contract PriceConsumerWithAdapter {
     AggregatorV2V3Interface private s_feedAdapter;
 
-    constructor(address adapter) {
-        s_feedAdapter = AggregatorV2V3Interface(adapter);
+    constructor(bytes32 _feedAdapterNode) {
+        s_feedAdapter = AggregatorV2V3Interface(SID.resolve(_feedAdapterNode));
     }
 
     function getDescription() public view returns (string memory) {
