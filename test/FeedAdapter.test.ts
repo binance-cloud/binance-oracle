@@ -1,20 +1,21 @@
 import {assert, expect} from "chai";
 import { ethers } from "hardhat";
 import {
-    getAdapterAddressByEnv,
-    getBTCAddressByEnv,
-    getRegistryAddressByEnv,
-    getUSDAddressByEnv,
-    getUsers
+  getAdapterAddressByEnv,
+  getRegistryAddressByEnv,
+  getSIDRegistryAddressByEnv,
+  getUsers
 } from "./helpers/setup";
 import {Contract} from "ethers";
 
 describe("Consumer through FeedAdapter", async function () {
+    let SIDRegistry: Contract
     let adapter: Contract
 
     before(async function () {
         const users = await getUsers()
         this.owner = users.roles.defaultAccount;
+        SIDRegistry = await ethers.getContractAt('SIDRegistry', getSIDRegistryAddressByEnv())
         // FeedAdapterInterface or AggregatorV2V3Interface are equivalent
         adapter = await ethers.getContractAt('AggregatorV2V3Interface', getAdapterAddressByEnv())
     })

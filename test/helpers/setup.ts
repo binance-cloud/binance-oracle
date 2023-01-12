@@ -34,6 +34,10 @@ export async function getUsers() {
     return users
 }
 
+export function getSIDRegistryAddressByEnv() {
+    return hre.network.name == "testnet" ? "0xfFB52185b56603e0fd71De9de4F6f902f05EEA23" : "0x08CEd32a7f3eeC915Ba84415e9C07a7286977956"
+}
+
 export function getLibAddressByEnv() {
     if  (hre.network.name == "testnet") {
         return REGISTRY_LIB_TESTNET_ADDRESS

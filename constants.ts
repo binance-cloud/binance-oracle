@@ -13,8 +13,7 @@ export const USD_TOKEN_MAINNET_ADDRESS = "0x1e57f399a41bbb809b8d9f5259e4ceba8bf6
 
 export const SID_TOP_DOMAIN = "boracle.bnb"
 export const FEED_REGISTRY_SID_SUBDOMAIN = "fr"
-export const BTCUSD_SID_SUBDOMAIN = "btc-usd"
-
+export const SYMBOL_PAIR_SUBDOMAINS = ["btc-usd", "eth-usd", "bnb-usd"]
 
 
 
