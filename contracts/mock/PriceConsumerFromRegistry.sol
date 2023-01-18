@@ -3,8 +3,6 @@ pragma solidity 0.8.4;
 
 import "../interfaces/FeedRegistryInterface.sol";
 import "../library/EnumerableTradingPairMap.sol";
-import "../library/SID.sol";
-
 
 /*
 *   Consumer contract which retrieves price data from FeedRegistry
@@ -15,8 +13,8 @@ import "../library/SID.sol";
 contract PriceConsumerFromRegistry {
     FeedRegistryInterface internal s_feedRegistry;
 
-    constructor(address sidRegistryAddr, bytes32 _feedRegistryNode) {
-        s_feedRegistry = FeedRegistryInterface(SID.resolve(sidRegistryAddr, _feedRegistryNode));
+    constructor(address _feedRegistryAddress) {
+        s_feedRegistry = FeedRegistryInterface(_feedRegistryAddress);
     }
 
     // Get all the available feeds on the registry. A pair is (base, quote) as strings
