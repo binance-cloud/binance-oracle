@@ -25,12 +25,19 @@ const getAccounts = (privateKeys: string | undefined): Array<string> => {
       })
 }
 
+const COMPILER_SETTINGS = {
+  optimizer: {
+    enabled: true,
+    runs: 1000,
+  },
+}
 const config: HardhatUserConfig = {
   defaultNetwork: 'testnet',
   solidity: {
     compilers: [
       {
         version: '0.8.4',
+        settings: COMPILER_SETTINGS,
       },
     ],
   },
