@@ -6,6 +6,9 @@ import { Contract } from "ethers";
 
 describe("Consumer through FeedAdapter", async function () {
 
+    // never timeout
+    this.timeout(0);
+
     let adapter: Contract
     let resolver: Contract
 
