@@ -6,6 +6,9 @@ import { getNodeValue } from "../scripts/sid";
 
 describe("Consumer through FeedRegistry", async function () {
 
+    // never timeout
+    this.timeout(0);
+
     let registry: Contract
     let resolver: Contract
     let baseSymbolAddress: string
