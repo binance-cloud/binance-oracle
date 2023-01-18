@@ -34,23 +34,8 @@ export async function getUsers() {
     return users
 }
 
-export function getSIDRegistryAddressByEnv() {
-    return hre.network.name == "testnet" ? "0xfFB52185b56603e0fd71De9de4F6f902f05EEA23" : "0x08CEd32a7f3eeC915Ba84415e9C07a7286977956"
-}
-
-export function getLibAddressByEnv() {
-    if  (hre.network.name == "testnet") {
-        return REGISTRY_LIB_TESTNET_ADDRESS
-    } else {
-        return REGISTRY_LIB_MAINNET_ADDRESS
-    }
-}
-export function getRegistryAddressByEnv() {
-    if  (hre.network.name == "testnet") {
-        return FEEDREGISTRY_TESTNET_ADDRESS
-    } else {
-        return FEEDREGISTRY_MAINNET_ADDRESS
-    }
+export function getSIDResolverAddressByEnv() {
+    return hre.network.name == "testnet" ? "0x65085651CcbCd165A9d20902ED1dFFB823d915A2" : "0x65085651CcbCd165A9d20902ED1dFFB823d915A2"
 }
 
 export function getAdapterAddressByEnv() {
