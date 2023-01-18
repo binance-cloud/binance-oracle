@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 import "../interfaces/FeedRegistryInterface.sol";
 import "../library/EnumerableTradingPairMap.sol";
-
 
 /*
 *   Consumer contract which retrieves price data from FeedRegistry
@@ -14,8 +13,8 @@ import "../library/EnumerableTradingPairMap.sol";
 contract PriceConsumerFromRegistry {
     FeedRegistryInterface internal s_feedRegistry;
 
-    constructor(address _registry) {
-        s_feedRegistry = FeedRegistryInterface(_registry);
+    constructor(address _feedRegistryAddress) {
+        s_feedRegistry = FeedRegistryInterface(_feedRegistryAddress);
     }
 
     // Get all the available feeds on the registry. A pair is (base, quote) as strings

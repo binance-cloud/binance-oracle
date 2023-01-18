@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 import "../interfaces/AggregatorV2V3Interface.sol";
 
@@ -12,8 +12,8 @@ import "../interfaces/AggregatorV2V3Interface.sol";
 contract PriceConsumerWithAdapter {
     AggregatorV2V3Interface private s_feedAdapter;
 
-    constructor(address adapter) {
-        s_feedAdapter = AggregatorV2V3Interface(adapter);
+    constructor(address _feedAdapterAddress) {
+        s_feedAdapter = AggregatorV2V3Interface(_feedAdapterAddress);
     }
 
     function getDescription() public view returns (string memory) {
