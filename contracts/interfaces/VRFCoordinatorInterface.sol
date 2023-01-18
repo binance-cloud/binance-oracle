@@ -53,17 +53,13 @@ interface VRFCoordinatorInterface {
    * @return subId - A unique subscription id.
    * @dev You can manage the consumer set dynamically with addConsumer/removeConsumer.
    * @dev Note to fund the subscription, use transferAndCall. For example
-   * @dev  LINKTOKEN.transferAndCall(
-   * @dev    address(COORDINATOR),
-   * @dev    amount,
-   * @dev    abi.encode(subId));
    */
   function createSubscription() external returns (uint64 subId);
 
   /**
    * @notice Get a VRF subscription.
    * @param subId - ID of the subscription
-   * @return balance - LINK balance of the subscription in juels.
+   * @return balance - BNB balance of the subscription in juels.
    * @return reqCount - number of requests for this subscription, determines fee tier.
    * @return owner - owner of the subscription.
    * @return consumers - list of consumer address which are able to use this subscription.
@@ -110,7 +106,7 @@ interface VRFCoordinatorInterface {
   /**
    * @notice Cancel a subscription
    * @param subId - ID of the subscription
-   * @param to - Where to send the remaining LINK to
+   * @param to - Where to send the remaining BNB to
    */
   function cancelSubscription(uint64 subId, address to) external;
 
