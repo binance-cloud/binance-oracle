@@ -2,6 +2,8 @@
 pragma solidity 0.8.4;
 
 import "../interfaces/AggregatorV2V3Interface.sol";
+import "../SID/SIDRegistry.sol";
+import "../SID/resolvers/PublicResolver.sol";
 
 /*
 *   Consumer contract which retrieves price data from a FeedAdapter of a particular trading pair
@@ -12,11 +14,15 @@ import "../interfaces/AggregatorV2V3Interface.sol";
 contract PriceConsumerWithAdapter {
     AggregatorV2V3Interface private s_feedAdapter;
 
-    constructor(address _feedAdapterAddress) {
+    constructor(address _sidRegistryAddress, bytes32 _feedAdapterNodeHash) {
+        SIDRegistry _sidRegistry = SIDRegistry(_sidRegistryAddress);
+        address _publicResolverAddress = _sidRegistry.resolver(_feedAdapterNodeHash);
+        PublicResolver _publicResolver = PublicResolver(_publicResolverAddress);
+        address _feedAdapterAddress = _publicResolver.addr(_feedAdapterNodeHash);
         s_feedAdapter = AggregatorV2V3Interface(_feedAdapterAddress);
     }
 
-    function getDescription() public view returns (string memory) {
+    function getDescription() external view returns (string memory) {
         return s_feedAdapter.description();
     }
 

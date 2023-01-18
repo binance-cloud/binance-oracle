@@ -3,6 +3,8 @@ pragma solidity 0.8.4;
 
 import "../interfaces/FeedRegistryInterface.sol";
 import "../library/EnumerableTradingPairMap.sol";
+import "../SID/SIDRegistry.sol";
+import "../SID/resolvers/PublicResolver.sol";
 
 /*
 *   Consumer contract which retrieves price data from FeedRegistry
@@ -13,18 +15,22 @@ import "../library/EnumerableTradingPairMap.sol";
 contract PriceConsumerFromRegistry {
     FeedRegistryInterface internal s_feedRegistry;
 
-    constructor(address _feedRegistryAddress) {
+    constructor(address _sidRegistryAddress, bytes32 _feedRegistryNodeHash) {
+        SIDRegistry _sidRegistry = SIDRegistry(_sidRegistryAddress);
+        address _publicResolverAddress = _sidRegistry.resolver(_feedRegistryNodeHash);
+        PublicResolver _publicResolver = PublicResolver(_publicResolverAddress);
+        address _feedRegistryAddress = _publicResolver.addr(_feedRegistryNodeHash);
         s_feedRegistry = FeedRegistryInterface(_feedRegistryAddress);
     }
 
     // Get all the available feeds on the registry. A pair is (base, quote) as strings
-    function getAllFeeds() public view returns (EnumerableTradingPairMap.Pair[] memory) {
+    function getAllFeeds() external view returns (EnumerableTradingPairMap.Pair[] memory) {
         return s_feedRegistry.getAllPairs();
     }
 
     // Returns the details of a particular feed.
     // The structure returned is (Base token address, quote token address, Pair's feed adapter address)
-    function getFeedDetails(string memory base, string memory quote) public view returns (address, address, address) {
+    function getFeedDetails(string memory base, string memory quote) external view returns (address, address, address) {
         return s_feedRegistry.getTradingPairDetails(base, quote);
     }
 
