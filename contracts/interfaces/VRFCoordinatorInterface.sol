@@ -123,6 +123,4 @@ interface VRFCoordinatorInterface {
    */
   function pendingRequestExists(uint64 subId) external view returns (bool);
 
-  function getCurrentSubId() external returns (uint64 subId);
-
 }
